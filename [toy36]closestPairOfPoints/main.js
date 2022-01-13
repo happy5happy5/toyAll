@@ -27,6 +27,9 @@ function closestPair(points){
   let minX=points[half][0]-d
   let maxY=points[half][1]+d
   let minY=points[half][1]-d
+  //사실 한점을 중심으로 거리가 d인 부분만 고려해야하지만 한변이 2d인 정사각형의 범위를 고려한다.
+  //그 점이 범위에 포함되어있는지 구하기 위한 방법이 
+  //차라리 포함시키고 계산하는 방법과 같으므로 그냥 포함 시켜버린다.(시간복잡도상에서 차이는 없다.)
   
   let range=[]
   for(let point of points){
