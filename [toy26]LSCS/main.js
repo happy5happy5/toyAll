@@ -22,9 +22,10 @@ function sumArrLargest(arr) {
   }
   return max;
 }
-debugger;
 
+debugger;
 console.log(sumArrLargest(arr));
+
 
 // 도시다람쥐: 양수 부분합을 이용한 풀이
 const LSCSBySquirrel = function (arr) {

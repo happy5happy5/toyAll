@@ -22,6 +22,9 @@ function insert(heap, item) {
   }
   return heap;
 }
+// debugger
+console.log(binaryHeap(arr));
+
 
 // 도시다람쥐: 재귀형태 저장용
 function insertUsingRecursionBySq(heap, item) {
@@ -39,5 +42,4 @@ function insertUsingRecursionBySq(heap, item) {
   swapRec(parentIdx, childIdx);
 }
 
-// debugger
-console.log(binaryHeap(arr));
+

@@ -54,6 +54,7 @@ function maxList(sign) {
   return queNum.join("");
 }
 
+
 // 도시다람쥐
 const inequalityNumberbySquirrel = function (signs) {
   // edge case: 연속해서 같은 부등호가 들어오는 경우
