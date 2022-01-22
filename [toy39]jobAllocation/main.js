@@ -8,13 +8,16 @@ jobs.fill(1)
 jobs[jobs.length-3]=894
 jobs[jobs.length-2]=456
 jobs[jobs.length-1]=123
+// jobs[2]=894
+// jobs[1]=456
+// jobs[0]=123
 let memo=[]
 // [1, 1, 1, 1, 1, 1, 1, 894, 456, 123]
 for(let i=0;i<workersNum;i++)memo.push(Array(jobs.length).fill(0))
 
     
-    // console.log(memo)
-  // memo[i][j]는 i번째 워커가 j부터 끝까지 짐을 처리할 때 최소값
+// console.log(memo)
+// memo[i][j]는 i번째 워커가 j부터 끝까지 짐을 처리할 때 최소값
 
 function comparing(jobs,lastworkerIdx,i,j){
     let sum=0
@@ -46,7 +49,7 @@ function workSpliter(jobs,lastworkerIdx,i,j){
         else workSpliter(jobs,lastworkerIdx,i,j+1)
     }
 }
-debugger
+// debugger
 workSpliter(jobs,workersNum-1,0,0)
 console.log(memo)
 
@@ -65,7 +68,7 @@ console.log(memo)
 
 
 
-
+//test pass code
 // const jobAllocation = function (jobs, workersNum) {
 //     let memo=[]
 //     for(let i=0;i<workersNum;i++)memo.push(Array(jobs.length).fill(0))
