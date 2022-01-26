@@ -110,3 +110,87 @@ const board = [//힌트가 17개인 고급문제
   // 6: (9) [6, 8, 7, 9, 5, 1, 2, 3, 4]
   // 7: (9) [5, 2, 4, 3, 6, 7, 1, 8, 9]
   // 8: (9) [9, 1, 3, 4, 2, 8, 5, 6, 7]
+
+
+
+
+
+  //elinapark0818
+  function nextEmptySpot(board) {
+    // check empty spot. if none, returns [-1, -1]
+    for (let i = 0; i < 9; i++) {
+      for (let j = 0; j < 9; j++) {
+        if (board[i][j] === 0)
+          return [i, j];
+      }
+    }
+    return [-1, -1];
+  }
+  
+  function checkRow(board, row, value){
+    // return false once value exists in that row
+    for(let i = 0; i < board[row].length; i++) {
+      if(board[row][i] === value) {
+        return false;
+      }
+    }
+    return true;
+  }
+  
+  
+  function checkColumn(board, column, value){
+    // return false once value exists in that column
+    for(let i = 0; i < board.length; i++) {
+      if(board[i][column] === value) {
+        return false;
+      }
+    }
+    return true;
+  };
+  
+  function checkSquare(board, row, column, value){
+    const boxRow = Math.floor(row / 3) * 3;
+    const boxCol = Math.floor(column / 3) * 3;
+  
+    for (let r = 0; r < 3; r++){
+      for (let c = 0; c < 3; c++){
+        if (board[boxRow + r][boxCol + c] === value)
+          return false;
+      }
+    }
+    return true;
+  };
+  
+  
+  function checkValue(board, row, column, value) {
+    // return true if value can be inserted in that spot without collapsing
+    if(checkRow(board, row, value) &&
+        checkColumn(board, column, value) &&
+        checkSquare(board, row, column, value)) {
+      return true;
+    }
+    return false;
+  };
+  
+  function sudoku(board) {
+    let emptySpot = nextEmptySpot(board);
+    let row = emptySpot[0];
+    let col = emptySpot[1];
+  
+    // there is no more empty spots
+    if (row === -1){
+      return board;
+    }
+  
+    for(let num = 1; num<=9; num++){
+      if (checkValue(board, row, col, num)){
+        board[row][col] = num;
+        sudoku(board);
+      }
+    }
+  
+    if (nextEmptySpot(board)[0] !== -1)
+      board[row][col] = 0;
+  
+    return board;
+  }

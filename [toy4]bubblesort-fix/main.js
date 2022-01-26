@@ -36,3 +36,18 @@ const swap = (idx1, idx2, arr) => {
     }
     return arr;
   };
+
+  //OverFlowBin
+  const bubbleSort = function (arr) {
+    for(let i = 0; i < arr.length; i++) {
+      let swapped = 0;
+      for(let j = 0; j < arr.length - i; j++) {
+        if(arr[j] > arr[j + 1]) {
+          [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+          swapped++;
+        }
+      }
+      if(!swapped) break;
+    }
+    return arr;
+  };
