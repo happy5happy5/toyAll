@@ -1,23 +1,17 @@
-function binary(arr, target, str, end) {
-    let half = str + parseInt((end - str) / 2)
-    if (arr[half] === target) return half
-    if (arr[end] === target) return end
-    if (arr[half] !== target && str + 1 === end && arr[str] !== target && arr[end] !== target) return -1
+//happy5happy5
 
-    if (arr[half] > target) {
-        let end = half;
-        return binary(arr, target, str, end)
-    } else {
-        let str = half
-        return binary(arr, target, str, end)
+const binarySearch = function (arr, target) {
+    // TODO : 여기에 코드를 작성합니다.
+    function binary(arr, target, str=0, end=arr.length-1) {
+        let half = str + parseInt((end - str) / 2)
+        if (arr[half] === target) return half
+        if (arr[end] === target) return end
+        if (arr[half] !== target && str + 1 === end && arr[str] !== target && arr[end] !== target) return -1
+  
+        if (arr[half] > target) return binary(arr, target, str, half)
+        else return binary(arr, target, half+1, end)
+        
     }
-
-
-}
-let arr = [3, 6, 7, 8, 9, 21, 31, 32];
-let target = 25
-let str = 0;
-let end = arr.length - 1
-// debugger
-let result = binary(arr, target, str, end)
-console.log(result)
+    return binary(arr,target)
+  };
+  
