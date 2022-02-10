@@ -1,3 +1,4 @@
+//happy5happy5  https://youtu.be/6u_hWxbOc7E 참고해서 만듦
 function calculateDistance(p1, p2) {
     const yDiff = p2[0] - p1[0];
     const xDiff = p2[1] - p1[1];
@@ -6,7 +7,6 @@ function calculateDistance(p1, p2) {
 
 let points=[[0, 100], [3, 4], [22, 35], [58, 34], [121, 132], [140, 153]]
 points.sort((a,b)=>a[0]-b[0])//mergeSort로 해야 제대로다. 근데 쓰지말라고는 안햇으니....
-
 
 function closestPair(points){
   let n=points.length-1
