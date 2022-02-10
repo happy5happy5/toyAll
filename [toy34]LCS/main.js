@@ -2,7 +2,7 @@
 const LCS = function (_str1, _str2) {
     let [str1,str2]=[_str1, _str2].map(x=>x.split(''))
     
-    let memo=Array(str1.length).fill(0).map(x=>x=Array(str2.length).fill(false))
+    let memo=Array(str1.length).fill(0).map(_=>Array(str2.length).fill(false))
     
     //memo[i][j]=str1 i번째와 str2 j번째에서의 답을 구한다.
     
