@@ -1,47 +1,34 @@
-
-let [str1,str2]=['codestates', 'c1o1d1e1s1t1a1t1e1s'].map(x=>x.split(''))
-
-function lcs(str1,str2){
-    let Pindex=0;
-    let temp1=[]
-    for(let i=0;i<str1.length;i++){
-        let Findex=str2.indexOf(str1[i],Pindex)
-        if(Findex!==-1&&Findex>=Pindex){
-            temp1.push(str2[Findex])
-            Pindex=Findex+1
-        }
-        else{
-
-        }
+//happy5happy5
+const LCS = function (_str1, _str2) {
+    let [str1,str2]=[_str1, _str2].map(x=>x.split(''))
+    
+    let memo=Array(str1.length).fill(0).map(x=>x=Array(str2.length).fill(false))
+    
+    //memo[i][j]=str1 i번째와 str2 j번째에서의 답을 구한다.
+    
+    str1.forEach((x,i)=>str2.forEach((y,j)=>x===y?memo[i][j]=true:undefined))//que를 memo에 저장한다.
+    
+    function lcs(str1,str2){
+        let temp=[].concat(...memo).indexOf(true)
+        if(temp===-1)return 'done'
+        let i=parseInt(temp/str2.length)
+        let j=temp%str2.length
+        memo[i][j]=finder(str1.slice(i),str2.slice(j))
+        lcs(str1,str2)
     }
-    return temp1
-
-}
-console.log( lcs(str1,str2))
-
-
-
-
-// const LCS = function (_str1, _str2) {
-
-//     let [str1,str2]=[_str1,_str2].map(x=>x.split(''))
     
-//     function lcs(str1,str2){
-//         let Pindex=0;
-//         let temp1=[]
-//         for(let i=0;i<str1.length;i++){
-//             let Findex=str2.indexOf(str1[i],Pindex)
-//             if(Findex!==-1&&Findex>=Pindex){
-//                 temp1.push(str2[Findex])
-//                 Pindex=Findex+1
-//             }
-//             else{
+    function finder(str1,str2){
+        let count=0
+        for(let i=0,idx=0;i<str1.length;i++){
+            let temp=str2.indexOf(str1[i],idx)
+            if(temp>-1){
+                count++
+                idx=temp+1
+            }
+        }
+        return count
+    }
+    lcs(str1,str2)
+    return [].concat(...memo).filter(x=>x!==false).reduce((a,b)=>Math.max(a,b))
+    };
     
-//             }
-//         }
-//         return temp1
-    
-//     }
-//     return lcs(str1,str2).length
-    
-//     };
