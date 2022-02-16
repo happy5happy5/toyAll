@@ -1,64 +1,63 @@
-let arr = [20, 29];
-let power = 0;
-
-function radix(_arr, power) {
-  let arr = [..._arr];
-  let arrNext = [];
-  let arrNeg = [];
-  let powerNext;
-  let digit;
-  let bucket = {
-    0: [],
-    1: [],
-    2: [],
-    3: [],
-    4: [],
-    5: [],
-    6: [],
-    7: [],
-    8: [],
-    9: [],
-  };
-  let bucketNext = {
-    0: [],
-    1: [],
-    2: [],
-    3: [],
-    4: [],
-    5: [],
-    6: [],
-    7: [],
-    8: [],
-    9: [],
-  };
-
-  while (arr.length > 0) {
-    digit = ("" + parseInt(arr.slice(-1) / 10 ** power)).slice(-1);
-    powerNext = ("" + arr.slice(-1)).length - 1;
-    if (arr.slice(-1) < 0) {
-      arrNeg.push(-arr.pop());
-    } else if (powerNext - power === 0) {
-      bucket[digit].push(arr.pop());
-    } else {
-      bucketNext[digit].push(arr.pop());
+//happy5happy5
+function radixSort(arr) {
+  // todo: 여기에 코드를 작성합니다.
+function radix(_arr,power){
+    let arr=[..._arr]
+    let arrNext=[]
+    let arrNeg=[]
+    let powerNext;
+    let digit;
+    let bucket ={
+        '0':[],
+        '1':[],
+        '2':[],
+        '3':[],
+        '4':[],
+        '5':[],
+        '6':[],
+        '7':[],
+        '8':[],
+        '9':[],
     }
-  }
-  for (let i = 9; i >= 0; i--) {
-    arr.push(...bucket[i].reverse());
-  }
-  for (let i = 9; i >= 0; i--) {
-    arrNext.push(...bucketNext[i].reverse());
-  }
-  if (arrNeg.length > 1) {
-    arrNeg = [...radix(arrNeg, 0)].reverse().map((x) => (x = -x));
-  }
-  if (arrNext.length > 0)
-    return [...radix(arrNext, power + 1), ...arr, ...arrNeg];
-  else return [...arr, ...arrNeg];
+    let bucketNext ={
+        '0':[],
+        '1':[],
+        '2':[],
+        '3':[],
+        '4':[],
+        '5':[],
+        '6':[],
+        '7':[],
+        '8':[],
+        '9':[],
+    }
+
+    while(arr.length>0){
+        digit=(''+parseInt(arr.slice(-1)/(10**power))).slice(-1)
+        powerNext=(''+arr.slice(-1)).length-1
+        if(arr.slice(-1)<0){
+            arrNeg.push(-arr.pop())
+        }else if(powerNext-power===0){
+            bucket[digit].push(arr.pop())
+        }else{
+            bucketNext[digit].push(arr.pop())
+        }
+    }
+    for(let i=9;i>=0;i--){
+        arr.push(...bucket[i].reverse())
+        arrNext.push(...bucketNext[i].reverse())
+    }
+
+    if(arrNeg.length>1){
+        arrNeg=[...radix(arrNeg,0)].reverse().map(x=>x=-x)
+    }
+    if (arrNext.length>0) return [...radix(arrNext,power+1),...arr,...arrNeg]
+    
+    else return [...arr,...arrNeg]
+}
+  return radix(arr,0).reverse()
 }
 
-// debugger
-console.log(radix(arr, power).reverse());
 
 
 // 도시다람쥐
@@ -114,3 +113,68 @@ function radixSortBySquirrel(arr) {
   // 음수를 따로 골라내어 양수화시킨 후 해당 코드를 돌린다
   // 이후 다시 음수화하여 reverse한다.
 }
+
+//OverFlowBIN #1
+function radixSort(arr) {
+
+  let sorted = arr;
+
+  let stack = Array.from({ length: 10 }, () => []);  // 자리별로 나눠주기
+
+  // 가장큰 값의 자릿수 구하기
+  let maxLen = Math.max(...arr).toString().length;
+  // console.log(maxLen);
+
+  // 가장큰 수의 자릿수 만큼 돌리기
+  for(let i = 0; i < maxLen; i++) {
+    for(let j = 0; j < sorted.length; j++) {
+      let 자리별 = Math.floor(sorted[j] / Math.pow(10, i)) % 10   // 1 -> 1 , 2 -> 2, 12 -> 2, 145 -> 5
+      stack[자리별].push(sorted[j]);
+    }
+    sorted = stack.flat();
+    stack = Array.from({ length: 10 }, () => []); 
+  }
+
+  return sorted;
+}
+
+//OverFlowBIN #2
+function radixSort(arr) {
+
+  // 음수, 양수 배열 나누기
+  let negativeArr = [];
+  let positiveArr = [];
+
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i] < 0) negativeArr.push(arr[i] * -1)
+    else positiveArr.push(arr[i])
+  }
+  
+  // console.log('negativeArr', negativeArr)
+  // console.log('positiveArr', positiveArr)
+  
+
+  function sorting (item) {
+    if(item.length === 0) return [];
+    let sorted = item;
+    let stack = Array.from({ length: 10 }, () => []);  // 자리별로 나눠주기
+    
+    // 가장큰 값의 자릿수 구하기
+    let maxLen = Math.max(...item).toString().length;
+    // console.log(maxLen);
+
+    // 가장큰 수의 자릿수 만큼 돌리기
+    for(let i = 0; i < maxLen; i++) {
+      for(let j = 0; j < sorted.length; j++) {
+        let 자리별 = Math.floor(sorted[j] / Math.pow(10, i)) % 10   // 1 -> 1 , 2 -> 2, 12 -> 2, 145 -> 5
+        stack[자리별].push(sorted[j]);
+      }
+      sorted = stack.flat();
+      // console.log('sorted', sorted)
+      stack = Array.from({ length: 10 }, () => []); 
+    }
+
+    return sorted;
+  }
+  return [...sorting(negativeArr).reverse().map((item) => item * -1), ...sorting(positiveArr)]
+};
