@@ -157,6 +157,7 @@ function spreadRumor(rumorMap,agentIdxArr,level=0,twoLocation=[]){
   if(level===0){
     for(let agentIdx of agentIdxArr)
     rumorMap[parseInt(agentIdx/rumorMap.length)][agentIdx%rumorMap.length]=0;
+    // rumorMap[parseInt(agentIdx/rumorMap[0].length)][agentIdx%rumorMap[0].length]=0;
   }
   
   let que=[]
