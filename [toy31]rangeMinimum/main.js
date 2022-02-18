@@ -13,11 +13,6 @@ function randomNumberArray(num,min,max){
   }
   return result
 }
-
-
-
-
-
 const rangeMinimum = function (arr, ranges) {
   // TODO: 여기에 코드를 작성합니다.
 
@@ -33,8 +28,6 @@ const rangeMinimum = function (arr, ranges) {
     }
   }
   let pyramid=pyramidbuilder(arr,0,arr.length-1)
-
-
   // function treasureHunter(pyramid,ps,pe,rs,re){
   //   if(rs<=ps&&pe<=re)return pyramid.value
   //   if (pe < rs || re < ps) {
