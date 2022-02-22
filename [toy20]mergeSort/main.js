@@ -1,28 +1,21 @@
-const mergeSort = function (arr) {
-    // TODO: 여기에 코드를 작성합니다.
-      function downTier(arr){
-      if (arr.length>1){
-        let half=arr.length/2
-        let left=arr.splice(0,half)
-        return upTier(downTier(left),downTier(arr))
-      }else return arr    
-    }
-
-
-    function upTier(left, right){
-      let arr=[]
+//happy5happy5
+//mergeSort last
+Array.prototype.mergeSort = function(cal=(a,b)=>a-b){
+  let arr=this;
+  function downtier(arr){
+      if(arr.length<=1)return arr
+      let half=parseInt(arr.length/2)
+      return uptier(downtier(arr.slice(0,half)),downtier(arr.slice(half)))
+  }
+  function uptier(left,right,arr=[]){
       while(left.length&&right.length){
-          if(left[0]<right[0]){
-            arr.push(left.shift())
-          }else if(left[0]>right[0]){
-            arr.push(right.shift())
-          }else {
-            arr.push(left.shift())
-            arr.push(right.shift())
-          }
-        }
-        return [...arr,...left,...right]
-    }
-    return downTier(arr)
-  };
-  
+      if(cal(left[0],right[0])<0)arr.push(left.shift())
+      else if(cal(left[0],right[0])>0)arr.push(right.shift())
+      else{
+          arr.push(left.shift())
+          arr.push(right.shift())
+      }}
+      return [...arr,...left,...right]
+  }
+  return downtier(arr)
+}
