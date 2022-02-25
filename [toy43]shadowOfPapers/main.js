@@ -17,6 +17,7 @@ Array.prototype.mergeSort = function(cal=(a,b)=>a-b){
   }
   return downtier(arr)
 }
+
 // let papers=[
 //      [ 1, 1, 5000, 4000 ],
 //      [ 901, 323, 1200, 700 ],
@@ -46,7 +47,7 @@ papers=papers.map(x=>[x[0],x[0]+x[2],x[1],x[1]+x[3]]).mergeSort((a,b)=>{
   if(a[0]-b[0])return a[0]-b[0]
   else return a[1]-b[1]
 })
-// console.log(papers)
+console.log(papers)
 const scaner=(papers,config,call=(a)=>[a[0+config*2],a[1+config*2]])=>{
   let laser=call(papers[0])[0]
   let laserT=call(papers[0])[0]
@@ -87,6 +88,7 @@ const scaner=(papers,config,call=(a)=>[a[0+config*2],a[1+config*2]])=>{
 let temp=scaner(papers,0)
 // let temp2=scaner(papers,1)
 let sum=0
+// debugger
 while(1){
     let a=temp()
     if(!a)break
@@ -109,7 +111,7 @@ while(1){
       if(a[2]-b[2])return a[2]-b[2]
       else return a[3]-b[3]
     })
-    console.log(papersY)
+    // console.log(papersY)
     if(papersY.length){
       let temp=scaner(papersY,1)
       while(1){
@@ -126,7 +128,7 @@ while(1){
     return sum
   }
 
-console.log(sum)
+// console.log(sum)
 
 
 
