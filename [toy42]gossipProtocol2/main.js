@@ -123,7 +123,7 @@ function fourDirectionCheck(arr,rumorIdx,que=[]){
   let j=rumorIdx%arr[0].length
 
 
-  if(i+1<arr.length&& (arr[i+1][j]===('1')||arr[i+1][j]===('2')||arr[i+1][j]>arr[i][j]+1)){
+  if(i+1<arr.length&& (arr[i+1][j]===('1'))){
     // if(arr[i+1][j]===('2')){
     //   arr[i+1][j]='3'
     // }
@@ -131,7 +131,7 @@ function fourDirectionCheck(arr,rumorIdx,que=[]){
     arr[i+1][j]=arr[i][j]+1
     que.push(rumorIdx+arr[0].length)
   }
-  if(j+1<arr[0].length&& (arr[i][j+1]===('1')||arr[i][j+1]===('2')||arr[i][j+1]>arr[i][j]+1)){
+  if(j+1<arr[0].length&& (arr[i][j+1]===('1'))){
     // if(arr[i][j+1]===('2')){
     //   arr[i][j+1]='3'
     // }
@@ -139,7 +139,7 @@ function fourDirectionCheck(arr,rumorIdx,que=[]){
     arr[i][j+1]=arr[i][j]+1
     que.push(rumorIdx+1)
   }
-  if(i>0&& (arr[i-1][j]===('1')||arr[i-1][j]===('2')||arr[i-1][j]>arr[i][j]+1)){
+  if(i>0&& (arr[i-1][j]===('1'))){
     // if(arr[i-1][j]===('2')){
     //   arr[i-1][j]='3'
     // }
@@ -147,7 +147,7 @@ function fourDirectionCheck(arr,rumorIdx,que=[]){
     arr[i-1][j]=arr[i][j]+1
     que.push(rumorIdx-arr[0].length)
   }
-  if(j>0&& (arr[i][j-1]===('1')||arr[i][j-1]===('2')||arr[i][j-1]>arr[i][j]+1)){
+  if(j>0&& (arr[i][j-1]===('1'))){
     // if(arr[i][j-1]===('2')){
     //   arr[i][j-1]='3'
     // }
@@ -176,10 +176,7 @@ function spreadRumor(rumorMap,agentIdxArr,que=[]){
       },Number.MIN_SAFE_INTEGER)
     }
   }
-  
-  
-  let temp=fourDirectionCheck(rumorMap,que.shift())
-  que.push(...temp)
+  que.push(...fourDirectionCheck(rumorMap,que.shift()))
   return spreadRumor(rumorMap,agentIdxArr,que)
 
 }
@@ -191,8 +188,8 @@ function endGame(rumorMap,num){
   // let agentMap=[]
   for(let idx=0;idx<rumorMap.length**2;){
     let temp=[].concat(...rumorMap).indexOf('2',idx)
-    let edge=[].concat(...rumorMap).indexOf('1',idx)
-    if(edge===-1)return 0
+    // let edge=[].concat(...rumorMap).indexOf('1',idx)
+    // if(edge===-1)return 0
     if(temp===-1)break
     agentQue.push(temp)
     // agentMap.push(agentQue.length-1)
