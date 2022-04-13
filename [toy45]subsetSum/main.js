@@ -20,3 +20,4 @@ Array.prototype.mergeSort = function(cal=(a,b)=>a-b){
     return downtier(arr)
 }
 
+
