@@ -1,6 +1,120 @@
 <!DOCTYPE html>
 <html>
-<body>
+  <body>
     <script type="text/javascript" src="main.js"></script>
-</body>
+    <div class="markdown-body">
+      <h1>gossipProtocol</h1>
+      <h2>문제</h2>
+      <p>
+        세로와 가로의 길이가 각각 M, N인 마을지도가 배열로 주어졌을 때,
+        <code>'1'</code>은 주민이 있는 집을 의미하고 <code>'0'</code>은 주민이
+        없는 땅을 의미합니다. 이 마을은 소문이 시작되면 하루에 상하좌우 한 칸
+        바로 옆에 있는 집으로 퍼집니다. 특정 주민의 집 (R, C)으로부터 어떤
+        소문이 시작될 경우, 마을 전체로 소문이 퍼지는데 걸리는 시간(일)을
+        리턴해야 합니다.
+      </p>
+      <h2>입력</h2>
+      <h3>인자 1 : village</h3>
+      <ul>
+        <li><code>string</code> 타입을 요소로 갖는 배열</li>
+        <li><code>village.length</code>는 M</li>
+        <li><code>village[i]</code>는 <code>string</code> 타입</li>
+        <li><code>village[i].length</code>는 N</li>
+        <li>
+          <code>village[i][j]</code>는 세로로 i, 가로로 j인 지점의 정보를 의미
+        </li>
+        <li>
+          <code>village[i][j]</code>는 <code>'0'</code> 또는 <code>'1'</code>
+        </li>
+      </ul>
+      <h3>인자 2: row</h3>
+      <ul>
+        <li><code>number</code> 타입의 0 이상의 정수</li>
+        <li>소문이 시작되는 집의 세로 위치</li>
+      </ul>
+      <h3>인자 3: col</h3>
+      <ul>
+        <li><code>number</code> 타입의 0 이상의 정수</li>
+        <li>소문이 시작되는 집의 가로 위치</li>
+      </ul>
+      <h2>출력</h2>
+      <ul>
+        <li><code>number</code> 타입을 리턴해야 합니다.</li>
+      </ul>
+      <h2>주의사항</h2>
+      <ul>
+        <li>M, N은 100 이하의 자연수입니다.</li>
+        <li>
+          <code>row</code>, <code>col</code>에는 항상 주민이 살고 있습니다.
+        </li>
+        <li>
+          모든 집은 연결되어 있습니다. 즉, 한 집에서 다른 집으로 가는 경로가
+          항상 존재합니다.
+        </li>
+        <li>village를 그래프로 구현하는 함수가 주어집니다.</li>
+      </ul>
+      <h2>입출력 예시</h2>
+      <pre
+        style="
+          color: black;
+          background: rgb(245, 242, 240);
+          text-shadow: white 0px 1px;
+          font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+          text-align: left;
+          white-space: pre;
+          word-spacing: normal;
+          word-break: normal;
+          overflow-wrap: normal;
+          line-height: 1.5;
+          tab-size: 4;
+          hyphens: none;
+          padding: 1em;
+          margin: 0.5em 0px;
+          overflow: auto;
+        "
+      ><code style="color: black; background: none; text-shadow: white 0px 1px; font-family: Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace; text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; line-height: 1.5; tab-size: 4; hyphens: none;"><span class="token" style="color: rgb(0, 119, 170);">let</span> village <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(153, 153, 153);">[</span>
+  <span class="token" style="color: rgb(102, 153, 0);">'0101'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: slategray;">// 첫 번째 줄</span>
+  <span class="token" style="color: rgb(102, 153, 0);">'0111'</span><span class="token" style="color: rgb(153, 153, 153);">,</span>
+  <span class="token" style="color: rgb(102, 153, 0);">'0110'</span><span class="token" style="color: rgb(153, 153, 153);">,</span>
+  <span class="token" style="color: rgb(102, 153, 0);">'0100'</span><span class="token" style="color: rgb(153, 153, 153);">,</span>
+<span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+<span class="token" style="color: rgb(0, 119, 170);">let</span> row <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(153, 0, 85);">1</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+<span class="token" style="color: rgb(0, 119, 170);">let</span> col <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(153, 0, 85);">2</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+<span class="token" style="color: rgb(0, 119, 170);">let</span> output <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(221, 74, 104);">gossipProtocol</span><span class="token" style="color: rgb(153, 153, 153);">(</span>village<span class="token" style="color: rgb(153, 153, 153);">,</span> row<span class="token" style="color: rgb(153, 153, 153);">,</span> col<span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+<span class="token console" style="color: rgb(221, 74, 104);">console</span><span class="token" style="color: rgb(153, 153, 153);">.</span><span class="token method property-access" style="color: rgb(221, 74, 104);">log</span><span class="token" style="color: rgb(153, 153, 153);">(</span>output<span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span> <span class="token" style="color: slategray;">// --&gt; 3</span>
+<span class="token" style="color: slategray;">/*
+1. 시작: (1, 2)에서 시작, 소문이 퍼진 곳을 x로 표기
+ [
+  '0101',
+  '01x1',
+  '0110',
+  '0100',
+ ]
+
+2. 1일 뒤
+ [
+  '0101',
+  '0xxx',
+  '01x0',
+  '0100',
+ ]
+
+3. 2일 뒤
+ [
+  '0x0x',
+  '0xxx',
+  '0xx0',
+  '0100',
+ ]
+
+4. 3일 뒤: 소문이 전부 퍼짐 (끝)
+ [
+  '0x0x',
+  '0xxx',
+  '0xx0',
+  '0x00',
+ ]
+/*</span></code></pre>
+    </div>
+  </body>
 </html>

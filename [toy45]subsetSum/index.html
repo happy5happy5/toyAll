@@ -1,6 +1,80 @@
 <!DOCTYPE html>
 <html>
-<body>
+  <body>
     <script type="text/javascript" src="main.js"></script>
-</body>
+    <div class="markdown-body">
+      <h1>subsetSum</h1>
+      <h2>문제</h2>
+      <p>
+        자연수의 집합(<code>set</code>)과 자연수(<code>bound</code>)를 입력받아
+        아래의 조건을 만족하는 가장 큰 수를 리턴해야 합니다.
+      </p>
+      <pre
+        style="
+          color: black;
+          background: rgb(245, 242, 240);
+          text-shadow: white 0px 1px;
+          font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+          text-align: left;
+          white-space: pre;
+          word-spacing: normal;
+          word-break: normal;
+          overflow-wrap: normal;
+          line-height: 1.5;
+          tab-size: 4;
+          hyphens: none;
+          padding: 1em;
+          margin: 0.5em 0px;
+          overflow: auto;
+        "
+      ><code style="color: black; background: none; text-shadow: white 0px 1px; font-family: Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace; text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; line-height: 1.5; tab-size: 4; hyphens: none;">- 집합의 요소를 최대 한번씩만 더해서 만들어야 한다.
+        - `bound`를 넘지 않아야 한다.</code></pre>
+      <h2>입력</h2>
+      <h3>인자 1: set</h3>
+      <ul>
+        <li>자연수를 요소로 갖는 배열</li>
+      </ul>
+      <h3>인자 2: bound</h3>
+      <ul>
+        <li>
+          <code>number</code> 타입의 자연수 (<code>bound &lt;= 300</code>)
+        </li>
+      </ul>
+      <h2>출력</h2>
+      <ul>
+        <li><code>number</code> 타입을 리턴해야 합니다.</li>
+      </ul>
+      <h2>주의사항</h2>
+      <ul>
+        <li>조건을 만족하는 조합이 없는 경우, 0을 리턴해야 합니다.</li>
+      </ul>
+      <h2>입출력 예시</h2>
+      <pre
+        style="
+          color: black;
+          background: rgb(245, 242, 240);
+          text-shadow: white 0px 1px;
+          font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+          text-align: left;
+          white-space: pre;
+          word-spacing: normal;
+          word-break: normal;
+          overflow-wrap: normal;
+          line-height: 1.5;
+          tab-size: 4;
+          hyphens: none;
+          padding: 1em;
+          margin: 0.5em 0px;
+          overflow: auto;
+        "
+      ><code style="color: black; background: none; text-shadow: white 0px 1px; font-family: Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace; text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; line-height: 1.5; tab-size: 4; hyphens: none;"><span class="token" style="color: rgb(0, 119, 170);">let</span> output <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(221, 74, 104);">subsetSum</span><span class="token" style="color: rgb(153, 153, 153);">(</span><span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(153, 0, 85);">1</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">8</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">3</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">15</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">10</span><span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+        <span class="token console" style="color: rgb(221, 74, 104);">console</span><span class="token" style="color: rgb(153, 153, 153);">.</span><span class="token method property-access" style="color: rgb(221, 74, 104);">log</span><span class="token" style="color: rgb(153, 153, 153);">(</span>output<span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span> <span class="token" style="color: slategray;">// --&gt; 9 (= 1 + 8)</span>
+        
+        output <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(221, 74, 104);">subsetSum</span><span class="token" style="color: rgb(153, 153, 153);">(</span><span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(153, 0, 85);">20</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">80</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">99</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">27</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">35</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">100</span><span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+        <span class="token console" style="color: rgb(221, 74, 104);">console</span><span class="token" style="color: rgb(153, 153, 153);">.</span><span class="token method property-access" style="color: rgb(221, 74, 104);">log</span><span class="token" style="color: rgb(153, 153, 153);">(</span>output<span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span> <span class="token" style="color: slategray;">// --&gt; 100 (= 20 + 80)</span>
+        
+        output <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(221, 74, 104);">subsetSum</span><span class="token" style="color: rgb(153, 153, 153);">(</span><span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(153, 0, 85);">10</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">20</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">15</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">25</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">30</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">5</span><span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+        <span class="token console" style="color: rgb(221, 74, 104);">console</span><span class="token" style="color: rgb(153, 153, 153);">.</span><span class="token method property-access" style="color: rgb(221, 74, 104);">log</span><span class="token" style="color: rgb(153, 153, 153);">(</span>output<span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span> <span class="token" style="color: slategray;">// --&gt; 0</span></code></pre>
+    </div>
+  </body>
 </html>

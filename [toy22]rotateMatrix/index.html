@@ -1,6 +1,102 @@
 <!DOCTYPE html>
 <html>
-<body>
+  <body>
     <script type="text/javascript" src="main.js"></script>
-</body>
+    <div class="markdown-body">
+      <h1>rotateMatrix</h1>
+      <h2>문제</h2>
+      <p>
+        2차원 N x N 배열을 시계 방향으로 90도 회전시킨 배열을 리턴해야 합니다.
+      </p>
+      <h2>입력</h2>
+      <h3>인자 1 : matrix</h3>
+      <ul>
+        <li>
+          가로 길이(<code>matrix[i].length</code>)와 세로
+          길이(<code>matrix.length</code>)가 모두 N인 2차원 배열
+        </li>
+        <li><code>matrix[i][j]</code>는 <code>number</code> 타입</li>
+      </ul>
+      <h2>출력</h2>
+      <ul>
+        <li>2차원 배열을 리턴해야 합니다.</li>
+      </ul>
+      <h2>입출력 예시</h2>
+      <pre
+        style="
+          color: black;
+          background: rgb(245, 242, 240);
+          text-shadow: white 0px 1px;
+          font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+          text-align: left;
+          white-space: pre;
+          word-spacing: normal;
+          word-break: normal;
+          overflow-wrap: normal;
+          line-height: 1.5;
+          tab-size: 4;
+          hyphens: none;
+          padding: 1em;
+          margin: 0.5em 0px;
+          overflow: auto;
+        "
+      ><code style="color: black; background: none; text-shadow: white 0px 1px; font-family: Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace; text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; line-height: 1.5; tab-size: 4; hyphens: none;"><span class="token" style="color: rgb(0, 119, 170);">const</span> matrix <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(153, 153, 153);">[</span>
+        <span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(153, 0, 85);">1</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">2</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">3</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">4</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">,</span>
+        <span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(153, 0, 85);">5</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">6</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">7</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">8</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">,</span>
+        <span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(153, 0, 85);">9</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">10</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">11</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">12</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">,</span>
+        <span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(153, 0, 85);">13</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">14</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">15</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">16</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">,</span>
+      <span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+      <span class="token console" style="color: rgb(221, 74, 104);">console</span><span class="token" style="color: rgb(153, 153, 153);">.</span><span class="token method property-access" style="color: rgb(221, 74, 104);">log</span><span class="token" style="color: rgb(153, 153, 153);">(</span>matrix<span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(153, 0, 85);">0</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(153, 0, 85);">0</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span> <span class="token" style="color: slategray;">// --&gt; 1</span>
+      <span class="token console" style="color: rgb(221, 74, 104);">console</span><span class="token" style="color: rgb(153, 153, 153);">.</span><span class="token method property-access" style="color: rgb(221, 74, 104);">log</span><span class="token" style="color: rgb(153, 153, 153);">(</span>matrix<span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(153, 0, 85);">3</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(153, 0, 85);">2</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span> <span class="token" style="color: slategray;">// --&gt; 15</span>
+      
+      <span class="token" style="color: rgb(0, 119, 170);">const</span> rotatedMatrix <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(221, 74, 104);">rotateMatrix</span><span class="token" style="color: rgb(153, 153, 153);">(</span>matrix<span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+      <span class="token console" style="color: rgb(221, 74, 104);">console</span><span class="token" style="color: rgb(153, 153, 153);">.</span><span class="token method property-access" style="color: rgb(221, 74, 104);">log</span><span class="token" style="color: rgb(153, 153, 153);">(</span>rotatedMatrix<span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(153, 0, 85);">0</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(153, 0, 85);">0</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span> <span class="token" style="color: slategray;">// --&gt; 13</span>
+      <span class="token console" style="color: rgb(221, 74, 104);">console</span><span class="token" style="color: rgb(153, 153, 153);">.</span><span class="token method property-access" style="color: rgb(221, 74, 104);">log</span><span class="token" style="color: rgb(153, 153, 153);">(</span>rotatedMatrix<span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(153, 0, 85);">3</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(153, 0, 85);">2</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span> <span class="token" style="color: slategray;">// --&gt; 8</span></code></pre>
+      <h2>힌트</h2>
+      <ul>
+        <li>
+          컴퓨터 과학에서 행렬은 '행'의 길이인 m과 '열'의 길이인 n의 곱으로
+          표현됩니다. m X n 행렬은 아래와 같이 2차원 배열로 구현할 수 있습니다.
+          (행렬의 요소를 전부 <code>initVal</code>로 초기화)
+        </li>
+      </ul>
+      <pre
+        style="
+          color: black;
+          background: rgb(245, 242, 240);
+          text-shadow: white 0px 1px;
+          font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+          text-align: left;
+          white-space: pre;
+          word-spacing: normal;
+          word-break: normal;
+          overflow-wrap: normal;
+          line-height: 1.5;
+          tab-size: 4;
+          hyphens: none;
+          padding: 1em;
+          margin: 0.5em 0px;
+          overflow: auto;
+        "
+      ><code style="color: black; background: none; text-shadow: white 0px 1px; font-family: Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace; text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; line-height: 1.5; tab-size: 4; hyphens: none;"><span class="token" style="color: rgb(0, 119, 170);">const</span> matrix <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+      <span class="token" style="color: rgb(0, 119, 170);">for</span><span class="token" style="color: rgb(153, 153, 153);">(</span><span class="token" style="color: rgb(0, 119, 170);">let</span> row <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(153, 0, 85);">0</span><span class="token" style="color: rgb(153, 153, 153);">;</span> row <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">&lt;</span> m<span class="token" style="color: rgb(153, 153, 153);">;</span> row<span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">++</span><span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">&gt;</span><span class="token" style="color: rgb(153, 153, 153);">)</span> <span class="token" style="color: rgb(153, 153, 153);">{</span>
+        matrix<span class="token" style="color: rgb(153, 153, 153);">.</span><span class="token method property-access" style="color: rgb(221, 74, 104);">push</span><span class="token" style="color: rgb(153, 153, 153);">(</span><span class="token known-class-name" style="color: rgb(221, 74, 104);">Array</span><span class="token" style="color: rgb(153, 153, 153);">(</span>n<span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">.</span><span class="token method property-access" style="color: rgb(221, 74, 104);">fill</span><span class="token" style="color: rgb(153, 153, 153);">(</span>initVal<span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">)</span>
+      <span class="token" style="color: rgb(153, 153, 153);">}</span></code></pre>
+      <p>
+        이때 <code>matrix[i][j]</code>는 '행(세로축)을 기준으로 i만큼 아래에
+        있고 열(가로축)을 기준으로 j만큼 옆에 있다.`를 뜻합니다. 이 방식은
+        기하학에서 좌표 평면 위의 한 점을 나타낼 때 (x, y), 즉 가로축을 먼저
+        표기하고 세로축을 다음에 표기하는 방식과는 다릅니다. 그래프를 인접행렬로
+        구현할 때, 이 점을 주의하셔야 합니다.
+      </p>
+      <h2>Advanced</h2>
+      <ul>
+        <li>
+          세로와 가로의 길이가 각각 M, N인 2차원 M X N 배열을 시계방향으로
+          90도씩 K번 회전시킨 배열을 리턴해 보세요. 회전수가 두 번째 입력으로
+          주어집니다.
+        </li>
+      </ul>
+    </div>
+  </body>
 </html>

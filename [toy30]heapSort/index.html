@@ -1,6 +1,133 @@
 <!DOCTYPE html>
 <html>
-<body>
+  <body>
     <script type="text/javascript" src="main.js"></script>
-</body>
+    <div class="markdown-body">
+      <h1>heapSort</h1>
+      <h2>문제</h2>
+      <p>
+        정수를 요소로 갖는 배열을 입력받아 오름차순으로 정렬하여 리턴해야
+        합니다.
+      </p>
+      <h2>입력</h2>
+      <h3>인자 1 : arr</h3>
+      <ul>
+        <li><code>number</code> 타입을 요소로 갖는 배열</li>
+        <li><code>arr[i]</code>는 -100,000 이상 100,000 이하의 정수</li>
+        <li><code>arr.length</code>는 100,000 이하</li>
+      </ul>
+      <h2>출력</h2>
+      <ul>
+        <li><code>number</code> 타입을 요소로 갖는 배열을 리턴해야 합니다.</li>
+      </ul>
+      <h2>주의사항</h2>
+      <ul>
+        <li><strong>힙 정렬</strong>을 구현해야 합니다.</li>
+        <li><code>arr.sort</code> 사용은 금지됩니다.</li>
+        <li>입력으로 주어진 배열은 중첩되지 않은 1차원 배열입니다.</li>
+        <li><strong>최소 힙(min heap)</strong>을 구현해야 합니다.</li>
+        <li>
+          최소 힙 구현을 위해 선언된 함수들(<code>getParentIdx</code>,
+          <code>insert</code>, <code>removeRoot</code>)을 전부 완성해야 합니다.
+        </li>
+        <li>
+          <code>swap</code>, <code>getParentIdx</code>, <code>insert</code>,
+          <code>removeRoot</code>를 전부 사용해야 합니다.
+        </li>
+        <li>
+          <code>swap</code>, <code>binaryHeap</code>을 수정하지 않아야 합니다.
+        </li>
+        <li>
+          테스트 케이스에서 힙 함수들을 정확히 구현했는지 함께 테스트합니다.
+        </li>
+        <li>
+          <code>removeRoot</code>의 시간 복잡도는 <code>O(logN)</code>입니다.
+        </li>
+      </ul>
+      <h2>입출력 예시</h2>
+      <pre
+        style="
+          color: black;
+          background: rgb(245, 242, 240);
+          text-shadow: white 0px 1px;
+          font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+          text-align: left;
+          white-space: pre;
+          word-spacing: normal;
+          word-break: normal;
+          overflow-wrap: normal;
+          line-height: 1.5;
+          tab-size: 4;
+          hyphens: none;
+          padding: 1em;
+          margin: 0.5em 0px;
+          overflow: auto;
+        "
+      ><code style="color: black; background: none; text-shadow: white 0px 1px; font-family: Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace; text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; line-height: 1.5; tab-size: 4; hyphens: none;"><span class="token" style="color: rgb(0, 119, 170);">let</span> output <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(221, 74, 104);">heapSort</span><span class="token" style="color: rgb(153, 153, 153);">(</span><span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(153, 0, 85);">5</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">4</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">3</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">2</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">1</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+<span class="token console" style="color: rgb(221, 74, 104);">console</span><span class="token" style="color: rgb(153, 153, 153);">.</span><span class="token method property-access" style="color: rgb(221, 74, 104);">log</span><span class="token" style="color: rgb(153, 153, 153);">(</span>output<span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span> <span class="token" style="color: slategray;">// --&gt; [1, 2, 3, 4, 5]</span>
+
+output <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(221, 74, 104);">heapSort</span><span class="token" style="color: rgb(153, 153, 153);">(</span><span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(153, 0, 85);">3</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">1</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">21</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+<span class="token console" style="color: rgb(221, 74, 104);">console</span><span class="token" style="color: rgb(153, 153, 153);">.</span><span class="token method property-access" style="color: rgb(221, 74, 104);">log</span><span class="token" style="color: rgb(153, 153, 153);">(</span>output<span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span> <span class="token" style="color: slategray;">// --&gt; [1, 3, 21]</span>
+
+output <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(221, 74, 104);">heapSort</span><span class="token" style="color: rgb(153, 153, 153);">(</span><span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(153, 0, 85);">4</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">10</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">3</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">5</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">1</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+<span class="token console" style="color: rgb(221, 74, 104);">console</span><span class="token" style="color: rgb(153, 153, 153);">.</span><span class="token method property-access" style="color: rgb(221, 74, 104);">log</span><span class="token" style="color: rgb(153, 153, 153);">(</span>output<span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span> <span class="token" style="color: slategray;">// --&gt; [1, 3, 4, 5, 10]</span></code></pre>
+      <h2>힌트</h2>
+      <ul>
+        <li>
+          <p>
+            앞에서 말했듯이, 최소 힙은 최대 힙과 구현이 거의 일치합니다. 아래
+            링크를 다시 한번 참고하시기 바랍니다.
+          </p>
+          <ul>
+            <li>
+              <a
+                target="_blank"
+                href="https://www.cs.usfca.edu/~galles/visualization/Heap.html"
+                >https://www.cs.usfca.edu/~galles/visualization/Heap.html</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li>
+          <p>
+            아래와 같은 최소 힙에서 루트 노드의 값(<code>2</code>)은 전체 노드의
+            값 중에서 가장 작습니다. 루트 노드를 제거한 후에도 최소 힙을
+            유지해야 하려면 어떤 작업이 필요한 지 고민하시기 바랍니다.
+            <code>2</code>가 제거된 후의 최소 힙의 루트 노드는 <code>2</code>를
+            제외한 값 중 가장 작은 값(<code>3</code>)이 되어야 합니다. 아래와
+            같은 사실로부터 힙 정렬에 대한 아이디어를 얻길 바랍니다.
+          </p>
+          <ul>
+            <li>
+              루트 노드를 제거하고(가장 작은 값을 제거하고) 다시 최소 힙을
+              유지하면, 새로운 루트 노드의 값은 그 다음으로 가장 작은 값이다.
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <pre
+        style="
+          color: black;
+          background: rgb(245, 242, 240);
+          text-shadow: white 0px 1px;
+          font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+          text-align: left;
+          white-space: pre;
+          word-spacing: normal;
+          word-break: normal;
+          overflow-wrap: normal;
+          line-height: 1.5;
+          tab-size: 4;
+          hyphens: none;
+          padding: 1em;
+          margin: 0.5em 0px;
+          overflow: auto;
+        "
+      ><code style="color: black; background: none; text-shadow: white 0px 1px; font-family: Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace; text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; line-height: 1.5; tab-size: 4; hyphens: none;">    2
+   / \
+  5   3
+ / \ / \
+6  8 7  9</code></pre>
+    </div>
+  </body>
 </html>

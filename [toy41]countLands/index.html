@@ -1,6 +1,71 @@
 <!DOCTYPE html>
 <html>
-<body>
+  <body>
     <script type="text/javascript" src="main.js"></script>
-</body>
+    <div class="markdown-body">
+      <h1>countIslands</h1>
+      <h2>문제</h2>
+      <p>
+        세로와 가로의 길이가 각각 R, M인 2차원 R X M 배열 <code>grid</code>가
+        주어졌을 때, <code>'1'</code>은 땅을 의미하고 <code>'0'</code> 은 물을
+        의미합니다. 주어진 2차원 배열에 존재하는 섬의 개수를 리턴해야 합니다.
+      </p>
+      <h2>입력</h2>
+      <h3>인자 1 : grid</h3>
+      <ul>
+        <li>세로와 가로의 길이가 각각 R, M인 2차원 배열</li>
+        <li><code>arr.length</code>는 R</li>
+        <li><code>arr[i].length</code>는 M</li>
+        <li><code>arr[i][j]</code>는 0 또는 1</li>
+      </ul>
+      <h2>출력</h2>
+      <ul>
+        <li><code>number</code> 타입을 리턴해야 합니다.</li>
+      </ul>
+      <h2>주의사항</h2>
+      <ul>
+        <li><code>섬</code>이란 물로 둘러싸여 있는 땅을 말합니다.</li>
+        <li>
+          가로 혹은 세로로 땅이 연결되어 있는 경우 하나의 섬으로 간주합니다.
+        </li>
+        <li>2차원 배열의 범위 밖은 물로 둘러싸여 있다고 가정합니다.</li>
+      </ul>
+      <h2>입출력 예시</h2>
+      <pre
+        style="
+          color: black;
+          background: rgb(245, 242, 240);
+          text-shadow: white 0px 1px;
+          font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+          text-align: left;
+          white-space: pre;
+          word-spacing: normal;
+          word-break: normal;
+          overflow-wrap: normal;
+          line-height: 1.5;
+          tab-size: 4;
+          hyphens: none;
+          padding: 1em;
+          margin: 0.5em 0px;
+          overflow: auto;
+        "
+      ><code style="color: black; background: none; text-shadow: white 0px 1px; font-family: Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace; text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; line-height: 1.5; tab-size: 4; hyphens: none;"><span class="token" style="color: rgb(0, 119, 170);">let</span> grid <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(153, 153, 153);">[</span>
+        <span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(102, 153, 0);">'0'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'1'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'1'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'1'</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">,</span>
+        <span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(102, 153, 0);">'0'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'1'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'1'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'1'</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">,</span>
+        <span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(102, 153, 0);">'1'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'1'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'0'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'0'</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">,</span>
+      <span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+      <span class="token" style="color: rgb(0, 119, 170);">let</span> result <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(221, 74, 104);">countIslands</span><span class="token" style="color: rgb(153, 153, 153);">(</span>grid<span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+      <span class="token console" style="color: rgb(221, 74, 104);">console</span><span class="token" style="color: rgb(153, 153, 153);">.</span><span class="token method property-access" style="color: rgb(221, 74, 104);">log</span><span class="token" style="color: rgb(153, 153, 153);">(</span>result<span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span> <span class="token" style="color: slategray;">// --&gt; 1</span>
+      
+      grid <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(153, 153, 153);">[</span>
+        <span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(102, 153, 0);">'0'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'1'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'1'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'1'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'0'</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">,</span>
+        <span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(102, 153, 0);">'0'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'1'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'0'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'0'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'0'</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">,</span>
+        <span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(102, 153, 0);">'0'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'0'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'0'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'1'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'0'</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">,</span>
+        <span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(102, 153, 0);">'1'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'1'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'0'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'1'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'0'</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">,</span>
+        <span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(102, 153, 0);">'1'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'1'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'0'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'1'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'0'</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">,</span>
+      <span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+      result <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(221, 74, 104);">countIslands</span><span class="token" style="color: rgb(153, 153, 153);">(</span>grid<span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+      <span class="token console" style="color: rgb(221, 74, 104);">console</span><span class="token" style="color: rgb(153, 153, 153);">.</span><span class="token method property-access" style="color: rgb(221, 74, 104);">log</span><span class="token" style="color: rgb(153, 153, 153);">(</span>result<span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span> <span class="token" style="color: slategray;">// --&gt; 3</span></code></pre>
+    </div>
+  </body>
 </html>

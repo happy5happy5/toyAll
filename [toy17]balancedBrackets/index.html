@@ -1,6 +1,99 @@
 <!DOCTYPE html>
 <html>
-<body>
+  <body>
     <script type="text/javascript" src="main.js"></script>
-</body>
+    <div class="markdown-body">
+      <h1>balancedBrackets</h1>
+      <h2>문제</h2>
+      <p>
+        문자열을 입력받아 문자열 내의 모든 괄호의 짝이 맞는지 여부를 리턴해야
+        합니다.
+      </p>
+      <ul>
+        <li>
+          다음 단계에 맞춰 함수를 작성해 보세요
+          <ol>
+            <li>괄호의 종류를 단 한가지로 한정합니다.</li>
+            <li>괄호의 종류를 늘려 모든 종류의 괄호에도 작동하도록 합니다.</li>
+            <li>괄호를 제외한 문자열이 포함된 경우에도 작동하도록 합니다.</li>
+          </ol>
+        </li>
+      </ul>
+      <h2>입력</h2>
+      <h3>인자 1 : str</h3>
+      <ul>
+        <li><code>string</code> 타입의 괄호가 포함된 문자열</li>
+      </ul>
+      <h2>출력</h2>
+      <ul>
+        <li><code>boolean</code> 타입을 리턴해야 합니다.</li>
+      </ul>
+      <h2>주의사항</h2>
+      <ul>
+        <li>괄호의 종류는 <code>(, )</code>만 고려합니다.</li>
+        <li>
+          괄호는 먼저 열리고(<code>(</code>), 열린만큼만 닫혀야(<code>)</code>)
+          합니다.
+        </li>
+        <li>빈 문자열을 입력받은 경우, <code>true</code>를 리턴해야 합니다.</li>
+      </ul>
+      <h2>입출력 예시</h2>
+      <pre
+        style="
+          color: black;
+          background: rgb(245, 242, 240);
+          text-shadow: white 0px 1px;
+          font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+          text-align: left;
+          white-space: pre;
+          word-spacing: normal;
+          word-break: normal;
+          overflow-wrap: normal;
+          line-height: 1.5;
+          tab-size: 4;
+          hyphens: none;
+          padding: 1em;
+          margin: 0.5em 0px;
+          overflow: auto;
+        "
+      ><code style="color: black; background: none; text-shadow: white 0px 1px; font-family: Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace; text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; line-height: 1.5; tab-size: 4; hyphens: none;"><span class="token" style="color: rgb(0, 119, 170);">let</span> output <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(221, 74, 104);">balancedBrackets</span><span class="token" style="color: rgb(153, 153, 153);">(</span><span class="token" style="color: rgb(102, 153, 0);">'('</span><span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+        <span class="token console" style="color: rgb(221, 74, 104);">console</span><span class="token" style="color: rgb(153, 153, 153);">.</span><span class="token method property-access" style="color: rgb(221, 74, 104);">log</span><span class="token" style="color: rgb(153, 153, 153);">(</span>output<span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span> <span class="token" style="color: slategray;">// // -&gt; false</span>
+        
+        output <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(221, 74, 104);">balancedBrackets</span><span class="token" style="color: rgb(153, 153, 153);">(</span><span class="token" style="color: rgb(102, 153, 0);">'()'</span><span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+        <span class="token console" style="color: rgb(221, 74, 104);">console</span><span class="token" style="color: rgb(153, 153, 153);">.</span><span class="token method property-access" style="color: rgb(221, 74, 104);">log</span><span class="token" style="color: rgb(153, 153, 153);">(</span>output<span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span> <span class="token" style="color: slategray;">// --&gt; true</span></code></pre>
+      <h2>Advanced</h2>
+      <ul>
+        <li>
+          모든 종류의 괄호(<code>(, ), {, }, [, ]</code>)가 포함된 문자열을
+          입력빋아 모든 괄호의 짝이 맞는지 여부를 리턴해 보세요.
+        </li>
+      </ul>
+      <pre
+        style="
+          color: black;
+          background: rgb(245, 242, 240);
+          text-shadow: white 0px 1px;
+          font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+          text-align: left;
+          white-space: pre;
+          word-spacing: normal;
+          word-break: normal;
+          overflow-wrap: normal;
+          line-height: 1.5;
+          tab-size: 4;
+          hyphens: none;
+          padding: 1em;
+          margin: 0.5em 0px;
+          overflow: auto;
+        "
+      ><code style="color: black; background: none; text-shadow: white 0px 1px; font-family: Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace; text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; line-height: 1.5; tab-size: 4; hyphens: none;"><span class="token" style="color: rgb(0, 119, 170);">let</span> output <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(221, 74, 104);">balancedBrackets</span><span class="token" style="color: rgb(153, 153, 153);">(</span><span class="token" style="color: rgb(102, 153, 0);">'[](){}'</span><span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+        <span class="token console" style="color: rgb(221, 74, 104);">console</span><span class="token" style="color: rgb(153, 153, 153);">.</span><span class="token method property-access" style="color: rgb(221, 74, 104);">log</span><span class="token" style="color: rgb(153, 153, 153);">(</span>output<span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span> <span class="token" style="color: slategray;">// --&gt; true</span>
+        
+        output <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(221, 74, 104);">balancedBrackets</span><span class="token" style="color: rgb(153, 153, 153);">(</span><span class="token" style="color: rgb(102, 153, 0);">'[({})]'</span><span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+        <span class="token console" style="color: rgb(221, 74, 104);">console</span><span class="token" style="color: rgb(153, 153, 153);">.</span><span class="token method property-access" style="color: rgb(221, 74, 104);">log</span><span class="token" style="color: rgb(153, 153, 153);">(</span>output<span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span> <span class="token" style="color: slategray;">// --&gt; true</span>
+        
+        <span class="token" style="color: rgb(0, 119, 170);">let</span> output3 <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(221, 74, 104);">balancedBrackets</span><span class="token" style="color: rgb(153, 153, 153);">(</span><span class="token" style="color: rgb(102, 153, 0);">'[(]{)}'</span><span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+        <span class="token console" style="color: rgb(221, 74, 104);">console</span><span class="token" style="color: rgb(153, 153, 153);">.</span><span class="token method property-access" style="color: rgb(221, 74, 104);">log</span><span class="token" style="color: rgb(153, 153, 153);">(</span>output<span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span> <span class="token" style="color: slategray;">// --&gt; false</span></code></pre>
+    </div>
+  </body>
 </html>

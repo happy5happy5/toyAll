@@ -1,6 +1,78 @@
 <!DOCTYPE html>
 <html>
-<body>
+  <body>
     <script type="text/javascript" src="main.js"></script>
-</body>
+    <div class="markdown-body">
+      <h1>findAbbreviation</h1>
+      <h2>문제</h2>
+      <p>
+        두 개의 문자열 <code>strA</code>, <code>strB</code>를 입력받아 아래에
+        정의된 작업들을 통해 두 문자열을 동일하게 만들 수 있는지 확인해야
+        합니다.
+      </p>
+      <ul>
+        <li>작업1: <code>strA</code>의 소문자 한개를 대문자로 변경</li>
+        <li>작업2: <code>strA</code>의 소문자 한개를 제거</li>
+      </ul>
+      <h2>입력</h2>
+      <h3>인자 1: strA</h3>
+      <ul>
+        <li><code>string</code> 타입의 알파벳 문자열</li>
+        <li><code>strA.length</code>는 100 이하</li>
+      </ul>
+      <h3>인자 2: strB</h3>
+      <ul>
+        <li><code>string</code> 타입의 알파벳 대문자 문자열</li>
+        <li><code>strB.length</code>는 100 이하</li>
+      </ul>
+      <h2>출력</h2>
+      <ul>
+        <li><code>boolean</code> 타입을 리턴해야 합니다.</li>
+      </ul>
+      <h2>주의사항</h2>
+      <ul>
+        <li>작업의 수와 순서는 상관없습니다.</li>
+        <li>
+          greedy 알고리즘(매칭이 된다고 바로 매칭으로 간주)이 해결하지 못하는
+          입력이 있을 수 있습니다.
+        </li>
+      </ul>
+      <h2>입출력 예시</h2>
+      <pre
+        style="
+          color: black;
+          background: rgb(245, 242, 240);
+          text-shadow: white 0px 1px;
+          font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+          text-align: left;
+          white-space: pre;
+          word-spacing: normal;
+          word-break: normal;
+          overflow-wrap: normal;
+          line-height: 1.5;
+          tab-size: 4;
+          hyphens: none;
+          padding: 1em;
+          margin: 0.5em 0px;
+          overflow: auto;
+        "
+      ><code style="color: black; background: none; text-shadow: white 0px 1px; font-family: Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace; text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; line-height: 1.5; tab-size: 4; hyphens: none;"><span class="token" style="color: rgb(0, 119, 170);">let</span> output <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(221, 74, 104);">findAbbreviation</span><span class="token" style="color: rgb(153, 153, 153);">(</span><span class="token" style="color: rgb(102, 153, 0);">'AbcDE'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'ABDE'</span><span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+        <span class="token console" style="color: rgb(221, 74, 104);">console</span><span class="token" style="color: rgb(153, 153, 153);">.</span><span class="token method property-access" style="color: rgb(221, 74, 104);">log</span><span class="token" style="color: rgb(153, 153, 153);">(</span>output<span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span> <span class="token" style="color: slategray;">// --&gt; true ('b'를 대문자로 변경, 'c'를 제거)</span>
+        
+        output <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(221, 74, 104);">findAbbreviation</span><span class="token" style="color: rgb(153, 153, 153);">(</span><span class="token" style="color: rgb(102, 153, 0);">'AbcDE'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'AFDE'</span><span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+        <span class="token console" style="color: rgb(221, 74, 104);">console</span><span class="token" style="color: rgb(153, 153, 153);">.</span><span class="token method property-access" style="color: rgb(221, 74, 104);">log</span><span class="token" style="color: rgb(153, 153, 153);">(</span>output<span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span> <span class="token" style="color: slategray;">// --&gt; false</span></code></pre>
+      <h2>Advanced</h2>
+      <ul>
+        <li>
+          <code>strA</code>의 각 소문자에 대해서 대문자로 변경하거나 제거하는
+          선택이 있기 때문에 최악의 경우(<code>strA</code>가 모두 유망한
+          소문자로 이루어진 경우), <code>O(2^N)</code>의 시간 복잡도를 가지게
+          됩니다. 중복을 제거하여 훨신 효율적인 알고리즘의 작성이 가능합니다.
+          이를 위해서는 어디에서 중복이 발생하는지 파악하는 게 우선입니다.
+          <strong>반드시 직접</strong> 경우의 수를 나열하고 관찰하여 중복을
+          찾아내시기 바랍니다.
+        </li>
+      </ul>
+    </div>
+  </body>
 </html>

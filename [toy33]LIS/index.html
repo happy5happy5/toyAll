@@ -1,6 +1,105 @@
 <!DOCTYPE html>
 <html>
-<body>
+  <body>
     <script type="text/javascript" src="main.js"></script>
-</body>
+    <div class="markdown-body">
+      <h1>LIS</h1>
+      <h2>문제</h2>
+      <p>
+        정수를 요소로 갖는 문자열을 입력받아 다음의 조건을 만족하는 LIS*의
+        길이를 리턴해야 합니다.
+      </p>
+      <ul>
+        <li>
+          <code>LIS</code>: 배열의 연속되지 않는 부분 배열 중 모든 요소가
+          <strong>엄격하게 오름차순</strong>으로 정렬된 가장 긴 부분
+          배열(Longest Increasing Subsequence)
+        </li>
+        <li>
+          배열 <code>[1, 2, 3]</code>의 subseqeunce는 <code>[1]</code>,
+          <code>[2]</code>, <code>[3]</code>, <code>[1, 2]</code>,
+          <code>[1, 3]</code>, <code>[2, 3]</code>,
+          <code>[1, 2, 3]</code> 입니다.
+        </li>
+        <li>
+          <code>엄격한 오름차순</code>: 배열이 동일한 값을 가진 요소없이
+          오름차순으로 정렬되어 있는 경우를 말합니다.
+        </li>
+      </ul>
+      <h2>입력</h2>
+      <h3>인자 1 : arr</h3>
+      <ul>
+        <li><code>number</code> 타입을 요소로 갖는 배열</li>
+        <li><code>arr.length</code>는 60,000 이하</li>
+        <li><code>arr[i]</code>는 100,000 이하의 양의 정수</li>
+      </ul>
+      <h2>출력</h2>
+      <ul>
+        <li><code>number</code> 타입을 리턴해야 합니다.</li>
+      </ul>
+      <h2>주의사항</h2>
+      <ul>
+        <li>LIS의 <strong>길이</strong>를 리턴해야 합니다.</li>
+        <li>LIS가 존재하지 않는 경우는 없습니다.</li>
+      </ul>
+      <h2>입출력 예시</h2>
+      <pre
+        style="
+          color: black;
+          background: rgb(245, 242, 240);
+          text-shadow: white 0px 1px;
+          font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+          text-align: left;
+          white-space: pre;
+          word-spacing: normal;
+          word-break: normal;
+          overflow-wrap: normal;
+          line-height: 1.5;
+          tab-size: 4;
+          hyphens: none;
+          padding: 1em;
+          margin: 0.5em 0px;
+          overflow: auto;
+        "
+      ><code style="color: black; background: none; text-shadow: white 0px 1px; font-family: Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace; text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; line-height: 1.5; tab-size: 4; hyphens: none;"><span class="token" style="color: rgb(0, 119, 170);">let</span> output <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(153, 0, 85);">LIS</span><span class="token" style="color: rgb(153, 153, 153);">(</span><span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(153, 0, 85);">3</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">2</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+<span class="token console" style="color: rgb(221, 74, 104);">console</span><span class="token" style="color: rgb(153, 153, 153);">.</span><span class="token method property-access" style="color: rgb(221, 74, 104);">log</span><span class="token" style="color: rgb(153, 153, 153);">(</span>output<span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span> <span class="token" style="color: slategray;">// --&gt; 1 (3 or 2)</span>
+
+output <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(153, 0, 85);">LIS</span><span class="token" style="color: rgb(153, 153, 153);">(</span><span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(153, 0, 85);">3</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">10</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">2</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">1</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">20</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+<span class="token console" style="color: rgb(221, 74, 104);">console</span><span class="token" style="color: rgb(153, 153, 153);">.</span><span class="token method property-access" style="color: rgb(221, 74, 104);">log</span><span class="token" style="color: rgb(153, 153, 153);">(</span>output<span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span> <span class="token" style="color: slategray;">// --&gt; 3 (3, 10, 20)</span></code></pre>
+      <h2>Advanced</h2>
+      <ul>
+        <li>
+          LIS를 계산하는 효율적인 알고리즘(<code>O(N^2)</code>)이 존재합니다.
+          쉽지 않기 때문에 바로 레퍼런스 코드를 보고 이해하는 데 집중하시기
+          바랍니다.
+        </li>
+        <li>
+          subsequence는 문자열 또는 배열같이 순서가 있는 데이터에서 순서의 대소
+          관계가 유지되는 모든 부분 문자열 또는 부분 배열을 의미합니다.
+          sequence가 순서 또는 서열을 의미하기 때문에 subsequence는 부분
+          서열이라고 부르기도 합니다. 반면 substring 또는 subarray는 연속된
+          형태의 부분 문자열 또는 부분 배열을 의미합니다. 문자열
+          <code>'abcd'</code>의 subsequence와 substring은 각각 아래와 같습니다.
+          <ul>
+            <li>
+              substring: <code>'a'</code>, <code>'b'</code>, <code>'c'</code>,
+              <code>'d'</code>, <code>'ab'</code>, <code>'bc'</code>,
+              <code>'cd'</code>, <code>'abc'</code>, <code>'bcd'</code>,
+              <code>'abcd'</code>
+            </li>
+            <li>
+              subsequence: <code>'a'</code>, <code>'b'</code>, <code>'c'</code>,
+              <code>'d'</code>, <code>'ab'</code>, <code>'ac'</code>,
+              <code>'ad'</code>, <code>'bc'</code>, <code>'bd'</code>,
+              <code>'cd'</code>, <code>'abc'</code>, <code>'abd'</code>,
+              <code>'acd'</code>, <code>'bcd'</code>, <code>'abcd'</code>
+            </li>
+            <li>
+              LIS의 길이 대신 LIS 자체를 리턴하는 함수를 구현해 보시기 바랍니다.
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </body>
 </html>

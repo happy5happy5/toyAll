@@ -1,6 +1,61 @@
 <!DOCTYPE html>
 <html>
-<body>
+  <body>
     <script type="text/javascript" src="main.js"></script>
-</body>
+    <div class="markdown-body">
+      <h1>powerSet</h1>
+      <h2>문제</h2>
+      <p>
+        하나의 집합을 의미하는 문자열을 입력받아 각 문자를 가지고 만들 수 있는
+        모든 부분집합을 리턴해야 합니다.
+      </p>
+      <h2>입력</h2>
+      <h3>인자 1 : str</h3>
+      <ul>
+        <li><code>string</code> 타입의 공백이 없는 알파벳 소문자 문자열</li>
+      </ul>
+      <h2>출력</h2>
+      <ul>
+        <li>배열(<code>arr</code>)을 리턴해야 합니다.</li>
+        <li><code>arr[i]</code>는 각 부분집합의 원소로 구성된 문자열</li>
+      </ul>
+      <h2>주의사항</h2>
+      <ul>
+        <li>
+          <code>arr[i]</code>는 각 부분집합을 구성하는 원소를 연결한
+          문자열입니다.
+        </li>
+        <li><code>arr[i]</code>는 알파벳 순서로 정렬되어야 합니다.</li>
+        <li>집합은 중복된 원소를 허용하지 않습니다.</li>
+        <li>부분집합은 빈 문자열을 포함합니다.</li>
+        <li>
+          <code>arr</code>은 사전식 순서(lexical order)로 정렬되어야 합니다.
+        </li>
+      </ul>
+      <h2>입출력 예시</h2>
+      <pre
+        style="
+          color: black;
+          background: rgb(245, 242, 240);
+          text-shadow: white 0px 1px;
+          font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+          text-align: left;
+          white-space: pre;
+          word-spacing: normal;
+          word-break: normal;
+          overflow-wrap: normal;
+          line-height: 1.5;
+          tab-size: 4;
+          hyphens: none;
+          padding: 1em;
+          margin: 0.5em 0px;
+          overflow: auto;
+        "
+      ><code style="color: black; background: none; text-shadow: white 0px 1px; font-family: Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace; text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; line-height: 1.5; tab-size: 4; hyphens: none;"><span class="token" style="color: rgb(0, 119, 170);">let</span> output1 <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(221, 74, 104);">powerSet</span><span class="token" style="color: rgb(153, 153, 153);">(</span><span class="token" style="color: rgb(102, 153, 0);">'abc'</span><span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+        <span class="token console" style="color: rgb(221, 74, 104);">console</span><span class="token" style="color: rgb(153, 153, 153);">.</span><span class="token method property-access" style="color: rgb(221, 74, 104);">log</span><span class="token" style="color: rgb(153, 153, 153);">(</span>output1<span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span> <span class="token" style="color: slategray;">// ['', 'a', 'ab', 'abc', 'ac', 'b', 'bc', 'c']</span>
+        
+        <span class="token" style="color: rgb(0, 119, 170);">let</span> output2 <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(221, 74, 104);">powerSet</span><span class="token" style="color: rgb(153, 153, 153);">(</span><span class="token" style="color: rgb(102, 153, 0);">'jjump'</span><span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+        <span class="token console" style="color: rgb(221, 74, 104);">console</span><span class="token" style="color: rgb(153, 153, 153);">.</span><span class="token method property-access" style="color: rgb(221, 74, 104);">log</span><span class="token" style="color: rgb(153, 153, 153);">(</span>output2<span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span> <span class="token" style="color: slategray;">// ['', 'j', 'jm', 'jmp', 'jmpu', 'jmu', 'jp', 'jpu', 'ju', 'm', 'mp', 'mpu', 'mu', 'p', 'pu', 'u']</span></code></pre>
+    </div>
+  </body>
 </html>

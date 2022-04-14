@@ -1,6 +1,122 @@
 <!DOCTYPE html>
 <html>
-<body>
+  <body>
     <script type="text/javascript" src="main.js"></script>
-</body>
+    <div class="markdown-body">
+      <h3>shadowOfPapers</h3>
+      <p>
+        좌표평면 위에 존재하는 수많은 직사각형에 대한 정보가 2차원 배열로
+        주어집니다. 이 직사각형들은 서로 겹쳐 있을(overlapping) 수 있습니다. 이
+        직사각형들이 이루는 면적을 리턴해야 합니다.
+      </p>
+      <p>문제를 다르게 표현하면 아래와 같습니다.</p>
+      <pre
+        style="
+          color: black;
+          background: rgb(245, 242, 240);
+          text-shadow: white 0px 1px;
+          font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+          text-align: left;
+          white-space: pre;
+          word-spacing: normal;
+          word-break: normal;
+          overflow-wrap: normal;
+          line-height: 1.5;
+          tab-size: 4;
+          hyphens: none;
+          padding: 1em;
+          margin: 0.5em 0px;
+          overflow: auto;
+        "
+      ><code style="color: black; background: none; text-shadow: white 0px 1px; font-family: Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace; text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; line-height: 1.5; tab-size: 4; hyphens: none;">- 밑이 투명한 좌표평면 위에 직사각형 모양의 종이를 여러 개 올려놓고 위에서 빛을 비출 때 생기는 그림자의 넓이를 구해야 합니다.</code></pre>
+      <h2>입력</h2>
+      <h3>인자 1 : papers</h3>
+      <ul>
+        <li>배열을 요소로 갖는 배열</li>
+        <li><code>papers.length</code>는 30 이하</li>
+        <li>
+          <code>papers[i]</code>는 <code>number</code> 타입을 요소로 갖는 배열
+        </li>
+        <li>
+          <code>papers[i]</code>는 차례대로 직사각형의 좌측 하단 모서리의 x좌표,
+          y좌표, 너비(width), 높이(height)
+        </li>
+        <li><code>papers[i][j]</code>는 10,000 이하의 양의 정수</li>
+      </ul>
+      <h2>출력</h2>
+      <ul>
+        <li><code>number</code> 타입을 리턴해야 합니다.</li>
+      </ul>
+      <h2>입출력 예시</h2>
+      <pre
+        style="
+          color: black;
+          background: rgb(245, 242, 240);
+          text-shadow: white 0px 1px;
+          font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+          text-align: left;
+          white-space: pre;
+          word-spacing: normal;
+          word-break: normal;
+          overflow-wrap: normal;
+          line-height: 1.5;
+          tab-size: 4;
+          hyphens: none;
+          padding: 1em;
+          margin: 0.5em 0px;
+          overflow: auto;
+        "
+      ><code style="color: black; background: none; text-shadow: white 0px 1px; font-family: Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace; text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; line-height: 1.5; tab-size: 4; hyphens: none;"><span class="token" style="color: rgb(0, 119, 170);">let</span> result <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(221, 74, 104);">shadowOfPapers</span><span class="token" style="color: rgb(153, 153, 153);">(</span><span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(153, 0, 85);">0</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">1</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">4</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">4</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+<span class="token console" style="color: rgb(221, 74, 104);">console</span><span class="token" style="color: rgb(153, 153, 153);">.</span><span class="token method property-access" style="color: rgb(221, 74, 104);">log</span><span class="token" style="color: rgb(153, 153, 153);">(</span>result<span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span> <span class="token" style="color: slategray;">// --&gt; 16</span>
+
+<span class="token" style="color: slategray;">/*
+4 | x x x x
+3 | x x x x 
+2 | x x x x 
+1 | x x x x 
+0 |   
+--------------
+    0 1 2 3 4 
+*/</span>
+
+result <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(221, 74, 104);">shadowOfPapers</span><span class="token" style="color: rgb(153, 153, 153);">(</span><span class="token" style="color: rgb(153, 153, 153);">[</span>
+  <span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(153, 0, 85);">0</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">0</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">4</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">4</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">,</span>
+  <span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(153, 0, 85);">2</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">1</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">2</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">6</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">,</span>
+  <span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(153, 0, 85);">1</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">5</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">5</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">3</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">,</span>
+  <span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(153, 0, 85);">2</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">2</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">3</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(153, 0, 85);">3</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">,</span>
+<span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+<span class="token console" style="color: rgb(221, 74, 104);">console</span><span class="token" style="color: rgb(153, 153, 153);">.</span><span class="token method property-access" style="color: rgb(221, 74, 104);">log</span><span class="token" style="color: rgb(153, 153, 153);">(</span>result<span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span> <span class="token" style="color: slategray;">// --&gt; 36</span>
+<span class="token" style="color: slategray;">/*
+7 |   x x x x x
+6 |   x x x x x
+5 |   x x x x x
+4 |     x x x
+3 | x x x x x
+2 | x x x x x
+1 | x x x x
+0 | x x x x
+------------------
+    0 1 2 3 4 5 6 7
+*/</span></code></pre>
+      <h2>힌트</h2>
+      <ul>
+        <li>
+          인접 행렬로 좌표 평면을 생성하면 10,000 x 10,000의 2차원 행렬, 즉
+          1억개의 데이터를 생성해야 합니다. 대부분의 코딩 테스트에서 이는 공간
+          복잡도 요구 조건을 만족하지 못 합니다. 보통 코딩 테스트에서 메모리
+          사용량을 128MB ~ 512MB로 제한합니다. 64비트 정수(자바스크립트
+          <code>number</code> 타입)는 8바이트이므로, 전체 크기가 1천만개인
+          데이터들의 크기는 약 80MB 입니다. 메모리 사용량이 128MB라면 데이터가
+          2천만개만 넘어가도 테스트를 통과하지 못 합니다. 따라서 이 문제는
+          단순히 인접 행렬로 푸는 문제가 아니라는 것을 문제의 크기를 통해 추측할
+          수 있어야 합니다.
+        </li>
+        <li>
+          코딩 테스트의 입력 크기에 따른 시간 복잡도와 공간 복잡도 요구 사항에
+          대해서 학습하시기 바랍니다.
+        </li>
+        <li>스위핑(sweeping) 알고리즘에 대해서 학습하시기 바랍니다.</li>
+      </ul>
+    </div>
+  </body>
 </html>

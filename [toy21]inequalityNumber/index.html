@@ -1,6 +1,71 @@
 <!DOCTYPE html>
 <html>
-<body>
+  <body>
     <script type="text/javascript" src="main.js"></script>
-</body>
+    <div class="markdown-body">
+      <h3>inequalityNumber</h3>
+      <h2>문제</h2>
+      <p>
+        아래와 같은 과정을 거쳐 부등호 수(inequalityNumber)를 만들 수 있습니다.
+      </p>
+      <ul>
+        <li>
+          최대 9개의 부등호(<code>&lt;</code>, <code>&gt;</code>)가 주어집니다.
+        </li>
+        <li>
+          부등호의 좌우에는 0부터 9사이의 숫자가 한 번씩만 들어가야 합니다.
+        </li>
+        <li>
+          부등호를 만족하는 숫자의 조합을 차례대로 이어 붙여 만든 정수를 부등호
+          수라고 한다.
+        </li>
+      </ul>
+      <p>
+        부등호 기호들을 입력받아 부등호를 만족하는 최대 부등호 수와 최소 부등호
+        수의 차이를 리턴해야 합니다.
+      </p>
+      <h2>입력</h2>
+      <h3>인자 1 : signs</h3>
+      <ul>
+        <li><code>string</code> 타입의 공백을 사이에 둔 부등호 기호들</li>
+        <li><code>signs.length</code>는 17 이하 (최대 9개의 부등호 기호)</li>
+      </ul>
+      <h2>출력</h2>
+      <ul>
+        <li><code>number</code> 타입을 리턴해야 합니다.</li>
+      </ul>
+      <h2>주의사항</h2>
+      <ul>
+        <li>첫 자리가 0인 경우도 부등호 수에 포함되어야 합니다.</li>
+        <li>모든 입력에 답은 항상 존재합니다.</li>
+      </ul>
+      <h2>입출력 예시</h2>
+      <pre
+        style="
+          color: black;
+          background: rgb(245, 242, 240);
+          text-shadow: white 0px 1px;
+          font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+          text-align: left;
+          white-space: pre;
+          word-spacing: normal;
+          word-break: normal;
+          overflow-wrap: normal;
+          line-height: 1.5;
+          tab-size: 4;
+          hyphens: none;
+          padding: 1em;
+          margin: 0.5em 0px;
+          overflow: auto;
+        "
+      ><code style="color: black; background: none; text-shadow: white 0px 1px; font-family: Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace; text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; line-height: 1.5; tab-size: 4; hyphens: none;"><span class="token" style="color: rgb(0, 119, 170);">let</span> output <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(221, 74, 104);">inequalityNumber</span><span class="token" style="color: rgb(153, 153, 153);">(</span><span class="token" style="color: rgb(102, 153, 0);">'&lt;'</span><span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+        <span class="token console" style="color: rgb(221, 74, 104);">console</span><span class="token" style="color: rgb(153, 153, 153);">.</span><span class="token method property-access" style="color: rgb(221, 74, 104);">log</span><span class="token" style="color: rgb(153, 153, 153);">(</span>output<span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span> <span class="token" style="color: slategray;">// --&gt; 88 (89 - 01)</span>
+        
+        output <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(221, 74, 104);">inequalityNumber</span><span class="token" style="color: rgb(153, 153, 153);">(</span><span class="token" style="color: rgb(102, 153, 0);">'&lt; &gt;'</span><span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+        <span class="token console" style="color: rgb(221, 74, 104);">console</span><span class="token" style="color: rgb(153, 153, 153);">.</span><span class="token method property-access" style="color: rgb(221, 74, 104);">log</span><span class="token" style="color: rgb(153, 153, 153);">(</span>output<span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span> <span class="token" style="color: slategray;">// --&gt; 876 (897 - 021)</span>
+        
+        output <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(221, 74, 104);">inequalityNumber</span><span class="token" style="color: rgb(153, 153, 153);">(</span><span class="token" style="color: rgb(102, 153, 0);">'&gt; &lt; &gt;'</span><span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+        <span class="token console" style="color: rgb(221, 74, 104);">console</span><span class="token" style="color: rgb(153, 153, 153);">.</span><span class="token method property-access" style="color: rgb(221, 74, 104);">log</span><span class="token" style="color: rgb(153, 153, 153);">(</span>output<span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span> <span class="token" style="color: slategray;">// --&gt; 8,754 (9,786 - 1,032)</span></code></pre>
+    </div>
+  </body>
 </html>

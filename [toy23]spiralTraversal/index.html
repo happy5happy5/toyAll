@@ -1,6 +1,67 @@
 <!DOCTYPE html>
 <html>
-<body>
+  <body>
     <script type="text/javascript" src="main.js"></script>
-</body>
+    <div class="markdown-body">
+      <h1>spiralTraversal</h1>
+      <h2>문제</h2>
+      <p>2차원 M x N 배열을 나선형(spiral)으로 순회해야 합니다.</p>
+      <h2>입력</h2>
+      <h3>인자 1 : matrix</h3>
+      <ul>
+        <li>
+          세로 길이(<code>matrix.length</code>)가 M, 가로
+          길이(<code>matrix[i].length</code>)가 N인 2차원 배열
+        </li>
+        <li>
+          <code>matrix[i]</code>는 <code>string</code> 타입을 요소로 갖는 배열
+        </li>
+        <li><code>matrix[i][j].length</code>는 1</li>
+      </ul>
+      <h2>출력</h2>
+      <ul>
+        <li><code>string</code> 타입을 리턴해야 합니다.</li>
+      </ul>
+      <h2>주의사항</h2>
+      <ul>
+        <li>순회는 좌측 상단 (0,0)에서 시작합니다.</li>
+        <li>배열의 모든 요소를 순서대로 이어붙인 문자열을 리턴해야 합니다.</li>
+      </ul>
+      <h2>입출력 예시</h2>
+      <pre
+        style="
+          color: black;
+          background: rgb(245, 242, 240);
+          text-shadow: white 0px 1px;
+          font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+          text-align: left;
+          white-space: pre;
+          word-spacing: normal;
+          word-break: normal;
+          overflow-wrap: normal;
+          line-height: 1.5;
+          tab-size: 4;
+          hyphens: none;
+          padding: 1em;
+          margin: 0.5em 0px;
+          overflow: auto;
+        "
+      ><code style="color: black; background: none; text-shadow: white 0px 1px; font-family: Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace; text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; line-height: 1.5; tab-size: 4; hyphens: none;"><span class="token" style="color: rgb(0, 119, 170);">let</span> matrix <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(153, 153, 153);">[</span>
+        <span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(102, 153, 0);">'A'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'B'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'C'</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">,</span>
+        <span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(102, 153, 0);">'D'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'E'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'F'</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">,</span>
+        <span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(102, 153, 0);">'G'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'H'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'I'</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">,</span>
+      <span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+      <span class="token" style="color: rgb(0, 119, 170);">let</span> output <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(221, 74, 104);">spiralTraversal</span><span class="token" style="color: rgb(153, 153, 153);">(</span>matrix<span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+      <span class="token console" style="color: rgb(221, 74, 104);">console</span><span class="token" style="color: rgb(153, 153, 153);">.</span><span class="token method property-access" style="color: rgb(221, 74, 104);">log</span><span class="token" style="color: rgb(153, 153, 153);">(</span>output<span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span> <span class="token" style="color: slategray;">// --&gt; 'ABCFIHGDE'</span>
+      
+      matrix <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(153, 153, 153);">[</span>
+        <span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(102, 153, 0);">'T'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'y'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'r'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'i'</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">,</span>
+        <span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(102, 153, 0);">'i'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'s'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'t'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'o'</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">,</span>
+        <span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(102, 153, 0);">'n'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'r'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'e'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'n'</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">,</span>
+        <span class="token" style="color: rgb(153, 153, 153);">[</span><span class="token" style="color: rgb(102, 153, 0);">'n'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'a'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">'L'</span><span class="token" style="color: rgb(153, 153, 153);">,</span> <span class="token" style="color: rgb(102, 153, 0);">' '</span><span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">,</span>
+      <span class="token" style="color: rgb(153, 153, 153);">]</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+      output <span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">=</span> <span class="token" style="color: rgb(221, 74, 104);">spiralTraversal</span><span class="token" style="color: rgb(153, 153, 153);">(</span>matrix<span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span>
+      <span class="token console" style="color: rgb(221, 74, 104);">console</span><span class="token" style="color: rgb(153, 153, 153);">.</span><span class="token method property-access" style="color: rgb(221, 74, 104);">log</span><span class="token" style="color: rgb(153, 153, 153);">(</span>output<span class="token" style="color: rgb(153, 153, 153);">)</span><span class="token" style="color: rgb(153, 153, 153);">;</span> <span class="token" style="color: slategray;">// --&gt; 'Tyrion Lannister'</span></code></pre>
+    </div>
+  </body>
 </html>
