@@ -82,7 +82,7 @@ const findMax = (que) => {
   // console.log(sumN);
   return sumN.reduce((a, b) => Math.max(a, b));
 };
-let min = Number.MAX_SAFE_INTEGER;
+let min = sum;
 const makeNCR = (k, idx = 0, que = [topIdx]) => {
   for (let i = idx; i < num.length; i++) {
     if (i === topIdx) continue;
